@@ -59,6 +59,20 @@ body {
   margin-top: 30px;
 }
 
+.related-photos .photo-item {
+  width: 30%; /* Gunakan persentase untuk lebar yang responsif */
+  max-width: 200px; /* Batasi lebar maksimum agar tidak terlalu besar */
+  margin: 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box; /* Pastikan padding dan border masuk dalam lebar */
+}
+
+.related-photos .gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribusikan foto secara merata */
+}
+
 .related-photos h3 {
   color: #97996D; /* Warna matcha */
   margin-bottom: 20px;
