@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Detail Foto</title>
+  <link rel="stylesheet" href="style.css"> </head>
+<body>
+
+  <header>
+    <!-- Header Anda -->
+  </header>
+
+  <main>
+    <div class="photo-detail">
+      <img src="" alt="Foto Detail" id="detail-img">
+      <div class="caption">
+        <h2 id="detail-caption"></h2>
+        <p>Diupload oleh: <span id="detail-uploader"></span></p>
+        <a href="" download id="download-button">Unduh Foto</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    window.addEventListener('load', () => {
+  // Ambil data foto dari localStorage
+  const imageUrl = localStorage.getItem('imageUrl');
+  const caption = localStorage.getItem('caption');
+  const uploader = localStorage.getItem('uploader');
+
+  // Tampilkan data foto di halaman detail
+  document.getElementById('detail-img').src = imageUrl;
+  document.getElementById('detail-caption').textContent = caption;
+  document.getElementById('detail-uploader').textContent = uploader;
+  document.getElementById('download-button').href = imageUrl;
+});
+  </script> 
+
+</body>
+</html>
