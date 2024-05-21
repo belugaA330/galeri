@@ -21,6 +21,13 @@
     </div>
   </main>
 
+
+  <div class="related-photos">
+    <h3>Foto yang Terkait</h3>
+    <div class="gallery-container">
+      </div>
+  </div>
+
   <style>
     .photo-detail img {
   max-width: 65%;
@@ -28,6 +35,41 @@
   display: block; /* Untuk mencegah whitespace di bawah gambar */
   margin: 0 auto; /* Untuk memusatkan gambar */
 }
+
+
+body {
+  background-color: #F0FFF0; /* Warna latar belakang pastel */
+  font-family: sans-serif;
+  margin: 0;
+}
+
+.download-button {
+  background-color: #97996D; /* Warna matcha */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px; /* Menambahkan sedikit lengkungan */
+  text-decoration: none; /* Menghilangkan garis bawah default */
+  display: block; /* Memastikan tombol mengambil lebar penuh container */
+  margin: 20px auto; /* Memberi margin atas dan bawah, dan memusatkan tombol */
+}
+
+.related-photos {
+  margin-top: 30px;
+}
+
+.related-photos h3 {
+  color: #97996D; /* Warna matcha */
+  margin-bottom: 20px;
+}
+
+.related-photos .photo-item {
+  width: 200px; /* Sesuaikan ukuran foto terkait */
+  margin: 10px;
+  border: 1px solid #ddd;
+}
+
 
   </style>
 
@@ -45,6 +87,34 @@
   document.getElementById('detail-uploader').textContent = uploader;
   document.getElementById('download-button').href = imageUrl;
 });
+
+
+function getRandomPhotos() {
+  fetch('index.html')
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const photoItems = doc.querySelectorAll('.photo-item');
+
+      // Pilih 3 foto acak
+      const randomPhotos = [];
+      for (let i = 0; i < 3; i++) {
+        const randomIndex = Math.floor(Math.random() * photoItems.length);
+        randomPhotos.push(photoItems[randomIndex].outerHTML);
+      }
+
+      // Tampilkan foto acak di bagian "Foto yang Terkait"
+      document.querySelector('.related-photos .gallery-container').innerHTML = randomPhotos.join('');
+    });
+}
+
+// Panggil fungsi getRandomPhotos() saat halaman dimuat
+window.addEventListener('load', () => {
+  // ... (kode JavaScript lainnya) ...
+  getRandomPhotos();
+});
+
   </script> 
 
 </body>
