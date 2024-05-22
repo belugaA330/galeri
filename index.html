@@ -21,7 +21,7 @@
           </a>
           <div class="caption">
             <h3>Judul Foto 1</h3>
-            <p>Diupload oleh: <span>Nama Pengupload 1</span></p>
+            <p>Diupload oleh: Nama Pengupload 1</p>
           </div>
       </div>
         
@@ -31,7 +31,7 @@
           </a>
           <div class="caption">
             <h3>Judul Foto 1</h3>
-            <p>Diupload oleh: <span>Nama Pengupload 1</span></p>
+            <p>Diupload oleh: Nama Pengupload 1</p>
           </div>
       </div>
 
@@ -41,7 +41,7 @@
         </a>
         <div class="caption">
           <h3>Judul Foto 1</h3>
-          <p>Diupload oleh: <span>Nama Pengupload 1</span></p>
+          <p>Diupload oleh: Nama Pengupload 1</p>
         </div>
       </div>
         
@@ -51,7 +51,7 @@
           </a>
           <div class="caption">
             <h3>Judul Foto 2</h3>
-            <p>Diupload oleh: <span>Nama Pengupload 2</span></p>
+            <p>Diupload oleh: Nama Pengupload 1</p>
           </div>
       </div>
 
@@ -61,7 +61,7 @@
         </a>
         <div class="caption">
           <h3>Judul Foto 2</h3>
-          <p>Diupload oleh: <span>Nama Pengupload 2</span></p>
+          <p>Diupload oleh: Nama Pengupload 1</p>
         </div>
       </div>
 </div>
@@ -244,27 +244,6 @@ window.addEventListener('scroll', () => {
 
 
 
-function openPhotoDetail(imageUrl, caption, uploader) {
-  // Simpan data foto di localStorage 
-  localStorage.setItem('imageUrl', imageUrl);
-  localStorage.setItem('caption', caption);
-  localStorage.setItem('uploader', uploader);
-
-  // Buka halaman detail foto
-  window.location.href = 'detail.html';
-}
-
-// Tambahkan event listener ke setiap gambar di galeri
-const galleryImages = document.querySelectorAll('.photo-item img');
-galleryImages.forEach(image => {
-  image.addEventListener('click', () => {
-    const photoItem = image.closest('.photo-item'); // Dapatkan elemen .photo-item
-    const caption = photoItem.querySelector('.caption p:first-child').textContent;
-    const uploader = photoItem.querySelector('.caption p:last-child').textContent.replace('Diupload oleh: ', '');
-    
-    openPhotoDetail(image.src, caption, uploader);
-  });
-});
 
 </script>
 
